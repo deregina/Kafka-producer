@@ -1,3 +1,3 @@
 /.idea/
 *.pem
-/actions-deploy_accessKeys.csv
+*.csv

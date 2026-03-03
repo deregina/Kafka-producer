@@ -15,8 +15,9 @@ class BicycleProducer():
         self.topic = topic
         self.conf = {'bootstrap.servers': BROKER_LST,
                      'compression.type': 'lz4',
-                     'max.in.flight.requests.per.connection': 5,
-                     'acks': all}
+                     'enable.idempotence':'true',
+                     'max.in.flight.requests.per.connection': '5',
+                     'acks': 'all'}
         self.producer = Producer(self.conf)
         self._set_logger()
 

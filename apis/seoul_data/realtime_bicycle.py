@@ -70,7 +70,10 @@ class RealtimeBicycle:
         else:
             url = f'{base_url}/{start}/{end}'
         rslt = requests.get(url, headers=headers, timeout=(5, 20))
-        print("rslt", rslt)
+        print("rslt:", rslt, "status:", rslt.status_code)
+        print("content type:", rslt.headers.get("Content-Type"))
+        print("content len:", len(rslt.content))
+        print("preview:", (rslt.text or "")[:200])
         return rslt
 
     def chk_dir(self):

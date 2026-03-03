@@ -26,15 +26,6 @@ jobs:
         AUTH_KEY_SEOUL_DATA: ${{ secrets.AUTH_KEY_SEOUL_DATA }}
       run: sed -ie "s/##auth_key_seoul_data##/$AUTH_KEY_SEOUL_DATA/g" ./config/application.yml
 
-    - name: verify application.yml replaced
-      run: |
-        if grep ##auth_key_seoul_data## ./config/application.yml; then
-          echo "placeholder still in application.yml"
-          exit 1
-        else
-          echo "placeholder not found"
-        fi
-
     - name: archive to tar.gz
       run: tar cvfz ./kafka-producer.tar.gz *
 

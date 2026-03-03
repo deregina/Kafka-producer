@@ -28,8 +28,12 @@ jobs:
 
     - name: verify application.yml replaced
       run: |
-        echo "placeholder remaining lines:"
-        grep -n ##auth_key_seoul_data## ./config/application.yml && echo "placeholder still in application.yml" || echo "placeholder not found"
+        if grep ##auth_key_seoul_data## ./config/application.yml; then
+          echo "placeholder still in application.yml"
+          exit 1
+        else
+          echo "placeholder not found"
+        fi
 
     - name: archive to tar.gz
       run: tar cvfz ./kafka-producer.tar.gz *

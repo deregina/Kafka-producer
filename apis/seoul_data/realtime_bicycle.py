@@ -70,6 +70,8 @@ class RealtimeBicycle:
         else:
             url = f'{base_url}/{start}/{end}'
         rslt = requests.get(url, headers=headers, timeout=(5, 20), proxies={"http":None, "https":None})
+        print("URL:", url)
+        print("API key len:", len(self.auth_key))
         print("rslt:", rslt, "status:", rslt.status_code)
         print("content type:", rslt.headers.get("Content-Type"))
         print("content len:", len(rslt.content))

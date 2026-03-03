@@ -69,7 +69,7 @@ class RealtimeBicycle:
             url = f'{base_url}/{start}/{end}/{base_dt}'
         else:
             url = f'{base_url}/{start}/{end}'
-        rslt = requests.get(url, headers=headers, timeout=(5, 20))
+        rslt = requests.get(url, headers=headers, timeout=(5, 20), proxies={"http":None, "https":None})
         print("rslt:", rslt, "status:", rslt.status_code)
         print("content type:", rslt.headers.get("Content-Type"))
         print("content len:", len(rslt.content))

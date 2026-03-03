@@ -70,6 +70,7 @@ class RealtimeBicycle:
         else:
             url = f'{base_url}/{start}/{end}'
         rslt = requests.get(url, headers=headers, timeout=(5, 20))
+        print("rslt", rslt)
         return rslt
 
     def chk_dir(self):

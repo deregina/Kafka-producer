@@ -72,10 +72,15 @@ class RealtimeBicycle:
         rslt = requests.get(url, headers=headers, timeout=(5, 20), proxies={"http":None, "https":None})
         print("URL:", url)
         print("API key len:", len(self.auth_key))
+        print("first3:", self.auth_key[:3])
+        print("last3:", self.auth_key[-3:])
+        print("repr:", repr(self.auth_key))
+        print("white space:", any(c.isspace() for c in self.auth_key))
+
         print("rslt:", rslt, "status:", rslt.status_code)
         print("content type:", rslt.headers.get("Content-Type"))
         print("content len:", len(rslt.content))
-        print("preview:", (rslt.text or "")[:200])
+        print("preview:", (rslt.text or "")[:200], '\n')
         return rslt
 
     def chk_dir(self):

@@ -11,7 +11,7 @@ import traceback
 class RealtimeBicycle:
 
     def __init__(self, dataset_nm):
-        self.auth_key = '##auth_key_seoul_data##'
+        self.auth_key = '##AUTH_KEY_SEOUL_DATA##'
         self.api_url = 'http://openapi.seoul.go.kr:8088'
         self.log_dir = '/log/seoul_api'
         self.dataset_nm = dataset_nm
